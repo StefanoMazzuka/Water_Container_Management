@@ -21,12 +21,12 @@ public class Utils {
         return op;
     }
 
-    public static int readWaterQuantity(Scanner sc) {
-        int water;
+    public static int readPositiveInt(Scanner sc) {
+        int value;
         do {
-            water = readInt(sc);
-            if (water < 0) System.err.println("Negative value");
-        } while (water < 0);
-        return water;
+            value = readInt(sc);
+            if (value < 0) System.err.println("Negative value");
+        } while (value < 0);
+        return value;
     }
 }

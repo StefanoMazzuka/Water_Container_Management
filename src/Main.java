@@ -1,14 +1,21 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int NUM_CONTAINERS = 5;
-    public static int CAPACITY = 25;
+    public static int num_containers;
+    public static int capacity;
     private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Containers c = new Containers(NUM_CONTAINERS, CAPACITY);
+        System.out.print("How many containers do you want?: ");
+        num_containers = Utils.readPositiveInt(sc);
+
+        System.out.print("What will be its capacity?: ");
+        capacity = Utils.readPositiveInt(sc);
+
+        Containers c = new Containers(num_containers, capacity);
         int op;
         do {
+            c.show();
             Menu.show();
             op = Utils.readInt(sc);
             switch (op) {
@@ -17,9 +24,6 @@ public class Main {
                     break;
                 case 2:
                     removeWater(c);
-                    break;
-                case 3:
-                    c.show();
                     break;
                 case 0:
                     break;
@@ -38,7 +42,7 @@ public class Main {
         int container_id = c.getContainer(sc);
 
         System.out.print("L of water to add: ");
-        int water = Utils.readWaterQuantity(sc);
+        int water = Utils.readPositiveInt(sc);
         c.add(water, container_id - 1);
     }
 
@@ -50,7 +54,7 @@ public class Main {
         int container_id = c.getContainer(sc);
 
         System.out.print("L of water to remove: ");
-        int water = Utils.readWaterQuantity(sc);
+        int water = Utils.readPositiveInt(sc);
         c.remove(water, container_id - 1);
     }
 }

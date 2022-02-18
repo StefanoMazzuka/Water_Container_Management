@@ -20,10 +20,10 @@ public class Containers {
      * @param pos Position os the container in the array
      */
     public void add(int water, int pos) {
-        int waste = (water + this.containers[pos]) - Main.CAPACITY;
+        int waste = (water + this.containers[pos]) - Main.capacity;
         if (waste > 0) {
             System.out.println("Container " + (pos + 1) + " is full, you waste " + waste + "L");
-            this.containers[pos] = Main.CAPACITY;
+            this.containers[pos] = Main.capacity;
         }
         else this.containers[pos] += water;
     }
@@ -53,7 +53,7 @@ public class Containers {
 
             System.out.print("Container " + (i + 1) + ": ");
             graphic(this.containers[i]);
-            System.out.println(" " + this.containers[i] + "L/" + Main.CAPACITY + "L");
+            System.out.println(" " + this.containers[i] + "L/" + Main.capacity + "L");
         }
     }
 
@@ -80,12 +80,12 @@ public class Containers {
         do {
             System.out.println();
             System.out.print("Select container: ");
-            container_id = Utils.readInt(sc);
-            if (container_id <= 0 || container_id > Main.NUM_CONTAINERS) {
+            container_id = Utils.readPositiveInt(sc);
+            if (container_id > Main.num_containers) {
                 System.err.println("Container not exist");
                 System.out.println();
             }
-        } while (container_id <= 0 || container_id > Main.NUM_CONTAINERS);
+        } while (container_id <= 0 || container_id > Main.num_containers);
 
         return container_id;
     }

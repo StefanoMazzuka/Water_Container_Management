@@ -11,7 +11,6 @@ public class Menu {
         System.out.println("╚══════╝");
         System.out.println("1. add water");
         System.out.println("2. remove water");
-        System.out.println("3. show containers");
         System.out.println("0. exit");
         System.out.print("Option: ");
     }
